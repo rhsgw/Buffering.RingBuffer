@@ -12,9 +12,11 @@ namespace Buffering
 
 		public RingBuffer(int capacity)
 		{
+			if (capacity < 1) throw new ArgumentOutOfRangeException(nameof(capacity));
 			this.capacity = capacity;
 		}
 
 		public int LengthToRead => 0;
+		public int Margin => capacity;
 	}
 }
